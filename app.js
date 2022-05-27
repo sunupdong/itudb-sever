@@ -44,7 +44,8 @@ function getHotSearchList() {
           })
         // console.log(hotList);
         hotList.length ? resolve(hotList) : reject('errer')
-      }).catch((err)=>{
+      })
+      .catch((err) => {
         reject('request error')
       })
     // superagent.get(hotSearchURL, (err, res) => {
@@ -84,3 +85,5 @@ nodeSchedule.scheduleJob('30 * * * * *', async function () {
     console.error(error)
   }
 })
+
+module.exports = { getHotSearchList }
