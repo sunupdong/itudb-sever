@@ -86,4 +86,4 @@ nodeSchedule.scheduleJob('30 * * * * *', async function () {
   }
 })
 
-module.exports = { getHotSearchList }
+// module.exports = { getHotSearchList }
