@@ -18,5 +18,4 @@ npm start
 
 - 请求数据 [superagent](https://github.com/visionmedia/superagent)
 - 使用jquery获取元素 [cheerio](https://github.com/cheeriojs/cheerio)
-- 定时器 [node-schedule](https://github.com/node-schedule/node-schedule)
 

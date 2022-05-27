@@ -1,7 +1,6 @@
 const cheerio = require('cheerio')
 const superagent = require('superagent')
 const fs = require('fs')
-const nodeSchedule = require('node-schedule')
 const weiboURL = 'https://s.weibo.com'
 const hotSearchURL = weiboURL + '/top/summary?cate=realtimehot'
 
@@ -47,24 +46,6 @@ function getHotSearchList() {
   })
 }
 
-/*
- * schedule
-
-*    *    *    *    *    *    
-┬    ┬    ┬    ┬    ┬    ┬
-│    │    │    │    │    │
-│    │    │    │    │    └ day of week (0 - 7) (0 or 7 is Sun)
-│    │    │    │    └───── month (1 - 12)
-│    │    │    └────────── day of month (1 - 31)
-│    │    └─────────────── hour (0 - 23)
-│    └──────────────────── minute (0 - 59)
-└───────────────────────── second (0 - 59, OPTIONAL)
-
- */
-/**
- * 每分钟第30秒定时执行爬取任务
- */
-// nodeSchedule.scheduleJob('30 * * * * *', 
 (async function () {
   try {
     const hotList = await getHotSearchList()
@@ -79,4 +60,4 @@ function getHotSearchList() {
   }
 })()
 
-// module.exports = { getHotSearchList }
+module.exports = { getHotSearchList }
