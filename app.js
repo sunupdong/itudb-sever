@@ -17,14 +17,11 @@ function getHotSearchList() {
           'SUB=_2AkMV0R1pdcPxrAVTn_EQyWvgZY5H-jymBHSfAn7uJhIyOhhu7nECqSVutBF-XDXcz_XKfP8ConVYk8o_32dN56GH; SUBP=0033WrSXqPxfM72wWs9jqgMF555t',
       })
       .then((res) => {
-        console.log(res, 'res')
         const $ = cheerio.load(res.text)
         let hotList = []
-        // console.log($("#pl_top_realtimehot table tbody").length);
         $('#pl_top_realtimehot table tbody')
           .children('tr')
           .each(function (index) {
-            // console.log(index, 'index');
             if (index !== 0) {
               const $td = $(this).children().eq(1)
               const link = weiboURL + $td.find('a').attr('href')
@@ -42,16 +39,11 @@ function getHotSearchList() {
               })
             }
           })
-        // console.log(hotList);
         hotList.length ? resolve(hotList) : reject('errer')
       })
       .catch((err) => {
         reject('request error')
       })
-    // superagent.get(hotSearchURL, (err, res) => {
-    //   if (err) reject('request error')
-    //   // console.log(res.text);
-    // })
   })
 }
 
@@ -72,7 +64,7 @@ function getHotSearchList() {
 /**
  * 每分钟第30秒定时执行爬取任务
  */
-nodeSchedule.scheduleJob('30 * * * * *', async function () {
+// nodeSchedule.scheduleJob('30 * * * * *', async function () {
   try {
     const hotList = await getHotSearchList()
     await fs.writeFileSync(
@@ -84,6 +76,6 @@ nodeSchedule.scheduleJob('30 * * * * *', async function () {
   } catch (error) {
     console.error(error)
   }
-})
+// })
 
 // module.exports = { getHotSearchList }
