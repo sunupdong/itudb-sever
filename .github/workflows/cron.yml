@@ -1,9 +1,14 @@
 name: Node.js CI
 on:
+  push:
+    branches: [ main ]
   schedule:
     - cron:  '0-59 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
     steps:
       - run: npm install && npm run start
