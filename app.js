@@ -64,7 +64,8 @@ function getHotSearchList() {
 /**
  * 每分钟第30秒定时执行爬取任务
  */
-// nodeSchedule.scheduleJob('30 * * * * *', async function () {
+// nodeSchedule.scheduleJob('30 * * * * *', 
+(async function () {
   try {
     const hotList = await getHotSearchList()
     await fs.writeFileSync(
@@ -76,6 +77,6 @@ function getHotSearchList() {
   } catch (error) {
     console.error(error)
   }
-// })
+})()
 
 // module.exports = { getHotSearchList }
