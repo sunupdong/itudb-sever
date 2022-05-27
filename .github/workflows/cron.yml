@@ -1,16 +1,19 @@
 name: Node.js CI
 on:
   push:
-    branches: [ main ]
+    branches: 
+      - main
   schedule:
     - cron:  '* * * * *'
 jobs:
-  build:
+  start:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [14.x, 16.x]
     steps:
+      - name: checkout
+        uses: actions/checkout@main
       - name: Start
         run: | 
           npm install
