@@ -15,6 +15,4 @@ jobs:
       - name: checkout
         uses: actions/checkout@main
       - name: Start
-        run: | 
-          npm install
-          npm run start
+        run: npm run start
