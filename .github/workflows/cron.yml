@@ -2,7 +2,7 @@ name: Node.js CI
 on:
   push:
   schedule:
-    - cron:  '* * * * *'
+    - cron:  '*/2 * * * *'
 jobs:
   start:
     runs-on: ubuntu-latest

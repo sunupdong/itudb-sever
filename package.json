@@ -2,9 +2,9 @@
   "name": "node-weibo",
   "version": "1.0.0",
   "description": "一个实时爬取微博热搜的 nodejs 程序",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node index.js"
   },
   "keywords": [
     "微博热搜爬虫",
@@ -17,8 +17,9 @@
   ],
   "author": "sunupdong",
   "license": "ISC",
-  "devDependencies": {
-    "cheerio": "^1.0.0-rc.3",
-    "superagent": "^5.2.2"
+  "dependencies": {
+    "express": "^4.18.1",
+    "cheerio": "^1.0.0-rc.11",
+    "superagent": "^5.3.1"
   }
 }
