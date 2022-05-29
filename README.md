@@ -18,4 +18,4 @@ npm start
 
 - 请求数据 [superagent](https://github.com/visionmedia/superagent)
 - 使用jquery获取元素 [cheerio](https://github.com/cheeriojs/cheerio)
-
+- express 写出接口形式
