@@ -26,17 +26,17 @@ function getHotSearchList() {
             if (index !== 0 && !Number.isNaN(parseInt(t0))) {
               console.log(parseInt(t0));
               const $td = $(this).children().eq(1)
-              const link = weiboURL + $td.find('a').attr('href')
-              const text = $td.find('a').text()
-              const hotValue = $td.find('span').text()
+              const url = weiboURL + $td.find('a').attr('href')
+              const hot_word = $td.find('a').text()
+              const hot_word_num = $td.find('span').text()
               const icon = $td.find('img').attr('src')
                 ? 'https:' + $td.find('img').attr('src')
                 : ''
               hotList.push({
-                index,
-                link,
-                text,
-                hotValue,
+                id: index,
+                url,
+                hot_word,
+                hot_word_num,
                 icon,
               })
             }
